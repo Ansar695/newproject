@@ -144,10 +144,12 @@ app.post("/send", (req,res) => {
         host: "smtp.gmail.com",
         port: 587,
         secure: false,
-        requireTLS: true,
         auth: {
             user: "ansarsaeed988@gmail.com",
             pass: "@Ansar988"
+        },
+        tls: {
+            rejectUnauthorized: false
         }
     });
     
@@ -165,6 +167,7 @@ app.post("/send", (req,res) => {
         }else{
             console.log("email has been sent", info.response)
             res.render("index", {msg: "Email Sent Successfully."})
+            res.redirect("/")
         }
     })
 })
