@@ -2312,18 +2312,18 @@ footer .footer-copyright p{
 					<p>Quidabad, Mianwali, PK</p>
 				</div>
 			</div>
-
-			<form action="">
+			{{msg}}
+			<form action="send" method="POST">
 				<div class="input-wrap1">
-					<input type="text" class="name" placeholder="Your Name *" name="">
-					<input type="text" class="email" placeholder="Your Email *" name="">
+					<input type="text" class="name" placeholder="Your Name *" name="fname">
+					<input type="text" class="email" placeholder="Your Email *" name="email">
 				</div>
 				<div class="input-wrap2">
-					<input type="text" class="subject" placeholder="Your Subject *" name="">
-					<textarea class="text-area" placeholder="Send your Messsage *"></textarea>
+					<input type="text" class="subject" placeholder="Your Subject *" name="subject">
+					<textarea class="text-area" placeholder="Send your Messsage *" name="textArea"></textarea>
 				</div>
 				<div class="input-wrap3">
-					<button class="btn-primary">Send Message</button>
+					<button class="btn-primary" type="submit">Send Message</button>
 				</div>
 			</form>
 		</div>

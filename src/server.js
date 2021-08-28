@@ -6,6 +6,7 @@ const path = require("path")
 const hbs = require("hbs")
 const port = process.env.PORT || 8000;
 const http = require("http")
+const nodemailer = require("nodemailer")
 
 mongoose.connect("mongodb+srv://ansar:ansar123@cluster0.qr4tj.mongodb.net/MyBlogDB?retryWrites=true&w=majority", {
 
@@ -124,6 +125,48 @@ app.get("/deleteblog/:id", (req,res,next) => {
         res.redirect("/blog")
     })
 
+})
+
+app.post("/send", (req,res) => {
+    let output = `
+        <p>You have new contact request</p>
+        <h3>Contact Details</h3>
+        <ul>
+            <li>Name: ${req.body.fname}</li>
+            <li>Email: ${req.body.email}</li>
+            <li>Subject: ${req.body.subjet}</li>
+        </ul>
+        <h3>Message</h3>
+        <p>${req.body.textArea}</p>
+    `;
+
+    let transporter = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 587,
+        secure: false,
+        requireTLS: true,
+        auth: {
+            user: "ansarsaeed988@gmail.com",
+            pass: "@Ansar988"
+        }
+    });
+    
+    let mailOptions={
+        form: "ansarsaeed988@gmail.com",
+        to: "ansarsial695@gmail.com",
+        subject: "Email Contact Request",
+        Text: "Hello World",
+        html: output
+    }
+    
+    transporter.sendMail(mailOptions, function(err, info){
+        if(err){
+            console.log(err)
+        }else{
+            console.log("email has been sent", info.response)
+            res.render("index", {msg: "Email Sent Successfully."})
+        }
+    })
 })
 
 app.listen(port, () => {
