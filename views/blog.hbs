@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<link rel="stylesheet" type="text/css" href="fontawesome-free-5.15.3-web/css/all.min.css" media="">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>My Blogs</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			-webkit-font-smoothing: antialiased;
+			font-family: 'poppins', sans-serif;
+			font-weight: 500;
+			
+		}
+		html{
+			scroll-behavior: smooth;
+		}
+		body{
+			position: relative;
+		}
+		.blog{
+			width: 100%;
+			height: auto;
+			background: silver;
+			background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("./Images/aboutme.jpg");
+			background-attachment: fixed;
+		}
+		.container{
+			width: 80%;
+			height: auto;
+			padding: 1rem .5rem;
+			margin: auto;
+		}
+		.main-card{
+			padding-left: .5rem;
+			padding-top: .5rem;
+			padding-right: .5rem;
+			padding-bottom: 5rem;
+			clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+			background-color: white;
+		}
+		.card-upper{
+			width: 100%;
+			height: auto;
+			display: flex;
+			justify-content: space-between;
+		}
+		.card-upper .card-image{
+			width: 44%;
+			height: 350px;
+			overflow: hidden;
+		}
+		.card-upper .card-image img{
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: all .5s ease;
+		}
+		.card-upper .card-image img:hover{
+			transform: scale(1.1);
+		}
+		.card-upper .card-content{
+			width: 55%;
+			height: 350px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+		.card-upper .card-content h1{
+			font-size: 35px;
+			font-weight: 500;
+			letter-spacing: .5px;
+		}
+		.card-upper .card-content h4{
+			margin-top: 1.2rem;
+			color: silver;
+			font-size: 20px;
+			letter-spacing: 1px;
+		}
+		.card-upper .card-content p{
+			margin-top: 1rem;
+			color: #161616;
+			text-align: center;
+		}
+		.card-lower{
+			width: 100%;
+			height: auto;
+			padding: 1rem .5rem;
+		}
+		.card-lower h1{
+			font-size: 30px;
+			letter-spacing: .5px;
+			text-decoration: underline;
+			margin-bottom: 1.5rem;
+			margin-top: 2rem;
+		}
+		.card-lower p{
+			line-height: 26px;
+			padding-bottom: 1rem;
+		}
+		.fa-trash{
+			margin-left: 1rem;
+			border: 1px solid red;
+			color: red;
+			padding: .1rem;
+		}
+		.go-back{
+			border: 1px solid black;
+			color: black;
+			text-decoration: none;
+			padding: .1rem;
+		}
+
+		@media only screen and (max-width: 1000px){
+			.container{
+				width: 84%;
+				height: auto;
+				padding: 1rem .5rem;
+				margin: auto;
+			}
+			.card-upper .card-image{
+				height: 320px;
+			}
+			.card-upper .card-content{
+				height: 320px;
+			}
+		}
+
+
+		@media only screen and (max-width: 800px){
+			.container{
+				width: 88%;
+			}
+			.card-upper .card-image{
+				width: 48%;
+				height: 300px;
+			}
+			.card-upper .card-content{
+				width: 51%;
+				height: 300px;
+			}
+			.card-upper .card-content h1{
+				font-size: 32px;
+			}
+			.card-upper .card-content h4{
+				font-size: 18px;
+			}
+			.card-upper .card-content p{
+				font-size: 15px;
+			}
+		}
+
+		@media only screen and (max-width: 700px){
+			.container{
+				width: 94%;
+			}
+			.card-upper .card-image{
+				width: 48%;
+				height: 300px;
+			}
+			.card-upper .card-content{
+				width: 51%;
+				height: 300px;
+			}
+			.card-upper .card-content h1{
+				font-size: 30px;
+			}
+			.card-upper .card-content h4{
+				font-size: 16px;
+			}
+			.card-upper .card-content p{
+				font-size: 14px;
+			}
+		}
+		@media only screen and (max-width: 650px){
+			.container{
+				width: 98%;
+			}
+			.card-upper .card-image{
+				width: 49%;
+				height: 290px;
+			}
+			.card-upper .card-content{
+				width: 50%;
+				height: 290px;
+			}
+			.card-upper .card-content h1{
+				font-size: 26px;
+			}
+			.card-upper .card-content h4{
+				font-size: 16px;
+			}
+			.card-upper .card-content p{
+				font-size: 14px;
+			}
+		}
+		@media only screen and (max-width: 580px){
+			.container{
+				width: 94%;
+			}
+			.main-card{
+				padding-bottom: 6rem;
+			}
+			.card-upper{
+				display: flex;
+				flex-direction: column;
+			}
+			.card-upper .card-image{
+				width: 100%;
+				height: 380px;
+				overflow: hidden;
+			}
+			.card-upper .card-content{
+				width: 100%;
+				height: 200px;
+			}
+			.card-upper .card-content h1{
+				font-size: 35px;
+				letter-spacing: .5px;
+			}
+			.card-upper .card-content h4{
+				margin-top: 1.2rem;
+				font-size: 20px;
+				letter-spacing: 1px;
+			}
+			.card-lower{
+				padding-top: .6rem;
+			}
+		}
+		@media only screen and (max-width: 480px){
+			.card-upper .card-image{
+				height: 330px;
+			}
+		}
+
+		@media only screen and (max-width: 400px){
+			.container{
+				width: 98%;
+			}
+			.card-upper .card-image{
+				height: 300px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<section class="blog">
+		<div class="container">
+
+            {{#each blogsData}}
+			
+            <div class="main-card">
+				<div class="card-upper">
+					<div class="card-image">
+						<img src="./uploads/{{this.bImage}}">
+					</div>
+					<div class="card-content">
+						<h1>{{this.bTopic}}</h1>
+						<h4>{{this.bDate}}</h4>
+						<p><i>"This Content is is written and published by Ansar Saeed Sial, without any Copyright issue. Please seek permission before using this content. Thank You!"</i></p>
+					</div>
+				</div>
+				<div class="card-lower">
+					<h1>Article</h1>
+					<p>{{this.bText}}</p>
+				</div>
+				<a href="/" class="go-back"><i class="fas fa-long-arrow-left"></i> Go Back</a>
+				<a href="/deleteblog/{{this._id}}" class="work-del"><i class="fa fa-trash"></i></a>
+			</div>
+
+            {{/each}}
+            
+		</div>
+	</section>
+</body>
+</html>
