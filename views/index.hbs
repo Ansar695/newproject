@@ -169,8 +169,10 @@ header h3{
 }
 .container{
 	max-width: 1050px;
+	min-width: 200px;
 	padding: 0px 15px;
 	margin: auto;
+	overflow: hidden;
 }
 header nav{
 	padding: 1rem 0;
@@ -285,8 +287,10 @@ header nav .branding a:hover span{
 	background: var(--primary);
 	color: black;
 }
+
 section{
 	padding: 5rem 0;
+	overflow: hidden;
 }
 .about-main{
 	display: flex;
@@ -883,7 +887,7 @@ section{
 	position: relative;
 	z-index: 1;
 	max-width: 800px;
-	min-width: 300px;
+	min-width: 200px;
 	height: 350px;
 	display: flex;
 	flex-direction: column;
@@ -1475,7 +1479,7 @@ footer .footer-copyright p{
 	.hero .right{
 		margin-top: -1.5rem;
 		height: 40rem;
-		background: url('./Images/home5.png');
+		background: url('./Images/home5-min.png');
 		background-position: 100% 20%;
 		background-size: cover;
 		background-repeat: no-repeat;
@@ -1873,12 +1877,32 @@ footer .footer-copyright p{
 	}
 	.work .work-card-wrapper .card{
 		height: 300px;
-		
+	}
+	.contact .input-wrap1{
+		grid-gap: .5rem;
 	}
 }
 @media only screen and (max-width: 400px){
 	.card-wrapper .card{
 		padding: 2rem 1rem;
+	}
+	.contact .input-wrap1{
+		grid-template-columns: 1fr;
+		grid-gap: .5rem;
+	}
+}
+
+@media only screen and (max-width: 380px){
+	.work .work-card-wrapper .card{
+		height: 260px;
+		width: 95%;
+	}
+}
+
+@media only screen and (max-width: 340px){
+	.work .work-card-wrapper .card{
+		height: 200px;
+		width: 260px;
 	}
 }
 
