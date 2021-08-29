@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'poppins', sans-serif;
+	        font-weight: 500;
+        }
+        body{
+            position: relative;
+        }
+        .email-main{
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(0,0,0,0.92),rgba(0,0,0,0.99)), url("./Images/aboutme.jpg");
+            background-position: 100%;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+        .email-msg h3{
+            font-size: 30px;
+            letter-spacing: 1px;
+            margin-bottom: 3rem;
+            color: white;            
+        }
+        .email-main a{
+            text-decoration: none;
+            color: white;
+            width: 160px;
+            height: 40px;
+            border: 2px solid white;
+            text-align: center;
+            line-height: 40px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-main">
+        <div class="email-msg">
+            <h3>{{msg}}</h3>
+        </div>
+        <a href="/">GO BACK</a>
+    </div>
+</body>
+</html>

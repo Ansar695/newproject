@@ -134,7 +134,7 @@ app.post("/send", (req,res) => {
         <ul>
             <li>Name: ${req.body.fname}</li>
             <li>Email: ${req.body.email}</li>
-            <li>Subject: ${req.body.subjet}</li>
+            <li>Subject: ${req.body.subject}</li>
         </ul>
         <h3>Message</h3>
         <p>${req.body.textArea}</p>
@@ -145,8 +145,8 @@ app.post("/send", (req,res) => {
         port: 587,
         secure: false,
         auth: {
-            user: "ansarsaeed988@gmail.com",
-            pass: "@Ansar988"
+            user: "ansarweb988@gmail.com",
+            pass: "@Ansar695"
         },
         tls: {
             rejectUnauthorized: false
@@ -154,10 +154,9 @@ app.post("/send", (req,res) => {
     });
     
     let mailOptions={
-        form: "ansarsaeed988@gmail.com",
-        to: "ansarsial695@gmail.com",
+        form: "ansarweb988@gmail.com",
+        to: "ansarweb988@gmail.com",
         subject: "Email Contact Request",
-        Text: "Hello World",
         html: output
     }
     
@@ -166,8 +165,7 @@ app.post("/send", (req,res) => {
             console.log(err)
         }else{
             console.log("email has been sent", info.response)
-            res.render("index", {msg: "Email Sent Successfully."})
-            res.redirect("/")
+            res.render("EmailMsg", {msg: "Email Sent Successfully."})
         }
     })
 })

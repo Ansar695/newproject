@@ -40,7 +40,6 @@
 	-webkit-font-smoothing: antialiased;
 	font-family: 'poppins', sans-serif;
 	font-weight: 500;
-	
 }
 html{
 	scroll-behavior: smooth;
@@ -989,6 +988,11 @@ section{
 .contact .input-wrap2 textarea:focus{
 	outline: none;
 }
+.email-msg{
+	color: green;
+	margin-top: 1rem;
+}
+
 footer{
 	width: 100%;
 	padding-top: 4rem;
@@ -2312,20 +2316,20 @@ footer .footer-copyright p{
 					<p>Quidabad, Mianwali, PK</p>
 				</div>
 			</div>
-			{{msg}}
-			<form action="send" method="POST">
+			<form action="/send" method="POST">
 				<div class="input-wrap1">
-					<input type="text" class="name" placeholder="Your Name *" name="fname">
-					<input type="text" class="email" placeholder="Your Email *" name="email">
+					<input type="text" class="name" required placeholder="Your Name *" name="fname">
+					<input type="text" class="email" required placeholder="Your Email *" name="email">
 				</div>
 				<div class="input-wrap2">
 					<input type="text" class="subject" placeholder="Your Subject *" name="subject">
-					<textarea class="text-area" placeholder="Send your Messsage *" name="textArea"></textarea>
+					<textarea class="text-area" required placeholder="Send your Messsage *" name="textArea"></textarea>
 				</div>
 				<div class="input-wrap3">
 					<button class="btn-primary" type="submit">Send Message</button>
 				</div>
 			</form>
+			<p id="email-msg">{{msg}}</p>
 		</div>
 	</section>
 
@@ -2580,7 +2584,6 @@ footer .footer-copyright p{
 		workup.addEventListener("click", function(){
 			uploader.style.height = "0px"	
 		})
-
 	</script>
 </body>
 </html> 
