@@ -113,29 +113,24 @@ a{
 	}
 }
 .side-bar-img{
-	width: 120px;
-	height: 120px;
-	border-radius: 50%;
+	width: 100%;
+	height: 250px;
+	background: linear-gradient(to right, rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("./Images/aboutme.jpg");
+	background-position: 100%;
+	overflow: hidden;
 	margin: auto;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
-.side-bar-img img{
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	border-radius: 50%;
-	margin-top: 2rem;
-}
 .side-bar h4{
-	color: #333;
-	margin-top: 2rem;
+	color: white;
+	margin-top: 8rem;
 	letter-spacing: 1px;
-	font-size: 18px;
+	font-size: 24px;
 	text-align: center;
-	margin-bottom: 1rem;
+	font-weight: 500;
 }
 .side-bar-links{
 	display: flex;
@@ -149,7 +144,7 @@ a{
 	color: #333;
 	margin-top: 1rem;
 	font-size: 18px;
-	letter-spacing: .5px;
+	letter-spacing: 2px;
 }
 
 header{
@@ -594,6 +589,13 @@ section{
 	position: absolute;
 	left: 50%;
 	top: 0%;
+	width: 20px;
+	height: 20px;
+	border: 1px solid black;
+}
+.close-work-form i{
+	color: black;
+;
 }
 .close-work-form:hover{
 	cursor: pointer;
@@ -1879,24 +1881,79 @@ footer .footer-copyright p{
 		padding: 2rem 1rem;
 	}
 }
+
+
+	.preloader{
+		pointer-events: none;
+		user-select: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: #333;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		z-index: 10000;
+		transition-timing-function: cubic-bezier(0.19,1,0.22,1);
+	}
+	.preloader p{
+		color: white;
+		font-size: 22px;
+		letter-spacing: 3px;
+	}
+	.preloader .preloader-move{
+		width: 30%;
+		height: 12px;
+		margin-top: 1rem;
+		border-radius: 3px;
+		border: 1px solid white;
+		overflow: hidden;
+	}
+	.preloader .preloader-move .mover-inner{
+		width: 25%;
+		height: 100%;
+		background: silver;
+		border-radius: 3px;
+		transition: all .5s ease;
+		animation: moverIn 2s linear infinite;
+	}
+	@keyframes moverIn{
+		0%{margin-left: -25%;}
+		20%{margin-left: 0%;}
+		40%{margin-left: 25%;}
+		60%{margin-left: 50%;}
+		80%{margin-left: 75%;}
+		100%{margin-left: 100%;}
+	}
     </style>
 
 
 </head>
 <body>
+	<!-- Pre-Loader -->
+	<div class="preloader">
+		<p>LOADING </p>
+		<div class="preloader-move">
+			<div class="mover-inner"></div>
+		</div>
+	</div>
+
 	<!-- Side Bar -->
 	<div class="side-bar">
 		<div class="side-bar-img">
-			<img src="./Images/aboutme.jpg">
+			<h4>Ansar Saeed</h4>
 		</div>
-		<h4>Ansar Saeed</h4>
+		
 		<hr class="horizotal-border">
 		<div class="side-bar-links">
-			<a href="#">Home</a>
-			<a href="#moveAbout">About</a>
-			<a href="#moveServices">Services</a>
-			<a href="#moveWork">Work</a>
-			<a href="#moveBlog">Blog</a>
+			<a href="#"><i class="fa fa-home"></i> Home</a>
+			<a href="#moveAbout"><i class="fa fa-address-card"></i> About</a>
+			<a href="#moveServices"><i class="fa fa-computer-speaker"></i> Services</a>
+			<a href="#moveWork"><i class="fa fa-briefcase"></i> Work</a>
+			<a href="#moveBlog"><i class="fa fa-th-large"></i> Blog</a>
 		</div>
 	</div>
 
@@ -1917,7 +1974,7 @@ footer .footer-copyright p{
 					</div>
 				</div>
 				<div class="icon-bar">
-					<i class="fas fa-bars show"></i>
+					<i class="fa fa-bars show"></i>
 				</div>
 				<div class="right">
 					<a href="#contact-me-email"><button class="btn-primary">Order Now</button></a>
@@ -2010,14 +2067,14 @@ footer .footer-copyright p{
 				</div>
 				<div class="card">
 					<div class="icon">
-						<i class="fas fa-brush"></i>
+						<i class="fa fa-layer-group"></i>
 					</div>
 					<h4>Full Stack Development</h4>
 					<p>As a full stack developer, i will offer you complete website with front end & back end capability, just contact to get mine offers.</p>
 				</div>
 				<div class="card">
 					<div class="icon">
-						<i class="fa fa-sun"></i>
+						<i class="fad fa-sun"></i>
 					</div>
 					<h4>Graphic Desing</h4>
 					<p>Lorem Ipsum is dummy text. Lorem Ipsum is dummy text. Lorem Ipsum is dummy text.Lorem Ipsum is dummy text.</p>
@@ -2521,6 +2578,7 @@ footer .footer-copyright p{
 		      new TxtRotate(elements[i], JSON.parse(toRotate), period);
 		    }
 		  }
+		  
 		  // INJECT CSS
 		  var css = document.createElement("style");
 		  css.type = "text/css";
@@ -2528,19 +2586,19 @@ footer .footer-copyright p{
 		  document.body.appendChild(css);
 		};
 
-
 		// Show Sidebar Mobile View
 		var showSidebar = document.querySelector(".show");
 		var sideBarContainer = document.querySelector('.side-bar');
 
 		window.addEventListener('click', function(e){
-			if(e.target.className == "fas fa-bars show"){
+			if(e.target.className == "fa fa-bars show"){
 				sideBarContainer.classList.add("side-bar-active")
 			}
-			if(e.target.className != "fas fa-bars show"){
+			if(e.target.className != "fa fa-bars show"){
 				sideBarContainer.classList.remove('side-bar-active');
 			}
 		})
+
 // ABOUT RESPONSIVE
 		var aboutRes = document.querySelector('.about-responsive');
 		var btnReadMore = document.querySelector('.about-read');
@@ -2559,7 +2617,6 @@ footer .footer-copyright p{
 			}
 		})
 
-
 		const addBlog = document.getElementById('addBlog')
 		const blogForm = document.querySelector('.blog-form')
 		const blogup = document.getElementById("blog-up")
@@ -2572,18 +2629,26 @@ footer .footer-copyright p{
 			blogForm.style.height = "0px"
 		})
 
-
 		const uploader = document.querySelector(".uploader")
 		const uploaderBtn = document.querySelector("#add-work")
 		const workup = document.getElementById("work-up")
 
 		uploaderBtn.addEventListener("click", function(){
-			uploader.style.height = "150px"	
+			uploader.style.height = "150px"
 		})
 
 		workup.addEventListener("click", function(){
-			uploader.style.height = "0px"	
+			uploader.style.height = "0px"
 		})
+
+
+		{{!-- PRELOADER --}}
+		const preloader = document.querySelector(".preloader")
+
+		setTimeout(function(){
+			preloader.style.display = "none"
+		}, 3000)
+
 	</script>
 </body>
-</html> 
+</html>
