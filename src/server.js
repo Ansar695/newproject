@@ -50,7 +50,8 @@ let upload = multer({
 app.get("/", (req,res,next) => {
     const getDocs = async() => {
         const all_images = await picModel.find()
-        res.render("index", {images: all_images})
+        const all_blogs = await bModel.find()
+        res.render("index", {images: all_images, blogsData: all_blogs})
     }
     getDocs()
     
@@ -58,8 +59,9 @@ app.get("/", (req,res,next) => {
 
 app.get("/blog", (req,res,next) => {
     const getBlogs = async() => {
+        const all_images = await picModel.find()
         const all_blogs = await bModel.find()
-        res.render("blog", {blogsData: all_blogs})
+        res.render("index", {images: all_images, blogsData: all_blogs})
     }
     getBlogs()
     
