@@ -7,8 +7,8 @@ const hbs = require("hbs")
 const port = process.env.PORT || 8000;
 const http = require("http")
 const nodemailer = require("nodemailer")
-
-mongoose.connect("mongodb+srv://ansar:ansar123@cluster0.qr4tj.mongodb.net/MyBlogDB?retryWrites=true&w=majority", {
+// mongodb+srv://ansar:ansar123@cluster0.qr4tj.mongodb.net/MyBlogDB?retryWrites=true&w=majority
+mongoose.connect("mongodb://localhost:27017/MyBlogDB", {
 
 }).then(() => {
     console.log("Connection Successful")
