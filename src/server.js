@@ -61,7 +61,7 @@ app.get("/blog", (req,res,next) => {
     const getBlogs = async() => {
         const all_images = await picModel.find()
         const all_blogs = await bModel.find()
-        res.render("index", {images: all_images, blogsData: all_blogs})
+        res.render("blog", {images: all_images, blogsData: all_blogs})
     }
     getBlogs()
     
