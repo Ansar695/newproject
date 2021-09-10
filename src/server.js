@@ -7,7 +7,6 @@ const hbs = require("hbs")
 const port = process.env.PORT || 8000;
 const http = require("http")
 const nodemailer = require("nodemailer")
-
 mongoose.connect("mongodb+srv://ansar:ansar123@cluster0.qr4tj.mongodb.net/MyBlogDB?retryWrites=true&w=majority", {
 
 }).then(() => {
@@ -48,15 +47,7 @@ let upload = multer({
     storage:storage,
 })
 
-// var mulImages = upload.fields([{name: 'file'},{name: 'bImage'}])
-
 app.get("/", (req,res,next) => {
-    // findModel.exec((err,data) => {
-    //     res.render("index", {
-    //         title: "Image Uplaoder",
-    //         images: data
-    //     })
-    // })
     const getDocs = async() => {
         const all_images = await picModel.find()
         res.render("index", {images: all_images})
@@ -84,7 +75,8 @@ app.post("/", upload.single('file'), async(req,res,next) => {
 
     const getDocs = async() => {
         const all_images = await picModel.find()
-        res.render("index", {images: all_images})
+        const all_blogs = await bModel.find()
+        res.render("index", {images: all_images, blogsData: all_blogs})
     }
     getDocs()
 })
@@ -99,8 +91,9 @@ app.post("/blog", upload.single('bImage'), async(req,res,next) => {
     await bDetails.save();
     
     const getBlogs = async() => {
+        const all_images = await picModel.find()
         const all_blogs = await bModel.find()
-        res.render("blog", {blogsData: all_blogs})
+        res.render("index", {images: all_images, blogsData: all_blogs})
     }
     getBlogs()
 })
