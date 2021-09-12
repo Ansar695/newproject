@@ -7,8 +7,8 @@ const hbs = require("hbs")
 const port = process.env.PORT || 8000;
 const http = require("http")
 const nodemailer = require("nodemailer")
-mongoose.connect("mongodb+srv://ansar:ansar123@cluster0.qr4tj.mongodb.net/MyBlogDB?retryWrites=true&w=majority", {
-
+mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://ansar786:ansar786@cluster0.zls6w.mongodb.net/MyBlogBD?retryWrites=true&w=majority", {
+    
 }).then(() => {
     console.log("Connection Successful")
 }).catch((err) => {
@@ -46,7 +46,7 @@ const storage = multer.diskStorage({
 let upload = multer({
     storage:storage,
 })
-
+console.log(storage.filename)
 app.get("/", (req,res,next) => {
     const getDocs = async() => {
         const all_images = await picModel.find()
